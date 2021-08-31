@@ -13,4 +13,12 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\0_framework\0_framework.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\ExcelFiles\" />
+  </ItemGroup>
+
 </Project>

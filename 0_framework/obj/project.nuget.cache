@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "qaRWUUOcAE2VsfmIpwc0QjC2uqE0peTdgp6OorpmovVxi1L08qw0EU+JfjfgFa7puPJP+fG2o26mJdT3Iw1mhA==",
+  "success": true,
+  "projectFilePath": "D:\\emailSnder\\emailSender\\0_framework\\0_framework.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\LASHA\\.nuget\\packages\\microsoft.aspnetcore.http.features\\5.0.9\\microsoft.aspnetcore.http.features.5.0.9.nupkg.sha512",
+    "C:\\Users\\LASHA\\.nuget\\packages\\microsoft.extensions.primitives\\5.0.1\\microsoft.extensions.primitives.5.0.1.nupkg.sha512",
+    "C:\\Users\\LASHA\\.nuget\\packages\\system.io.pipelines\\5.0.1\\system.io.pipelines.5.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}
