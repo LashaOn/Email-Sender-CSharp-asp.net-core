@@ -1,9 +1,9 @@
 ﻿using System.IO;
-using _0_framework.FileUploader;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using IFileUploader = emailSender.Application.FileUploader.IFileUploader;
 
-namespace emailSender
+namespace emailSender.Application.FileUploader
 {
     public class FileUploader : IFileUploader
     {
@@ -14,18 +14,21 @@ namespace emailSender
             _webHostEnvironment = webHostEnvironment;
         }
 
-        public string Upload(IFormFile file)
+        public  string Upload(IFormFile file)
         {
-            if (file == null) return "";
-
+            //string of file path that we need save them
             var directoryPath = $"{_webHostEnvironment.WebRootPath}\\ExcelFiles\\";
 
+            //cheking the direcrory and create them 
             if (!Directory.Exists(directoryPath))
                 Directory.CreateDirectory(directoryPath);
 
+            
             var filePath = $"{directoryPath}\\{file.FileName}";
             using var output = File.Create(filePath);
-            file.CopyTo(output);
+
+            //save file
+            file.CopyToAsync(output);
 
             return filePath;
         }
