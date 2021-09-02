@@ -4,8 +4,101 @@
     ViewData["Title"] = "ارسال مقاله";
 }
 
+<!--START FORM INFORMATION-->
 
-<!--START FORMS-->
+
+<section class="form">
+    <div class="container">
+        <div class="col-12 bg-white shadow p-3">
+            <div class="form w-100 pb-2">
+                <h4 class="mb-5">
+                    اضافه کردن مخاطب
+                </h4>
+                <!--START SINGLE PERSON-->
+                <form asp-page-handler="EmailInfo" method="POST" class="row ">
+
+                    <div class="mb-3 col-lg-6 col-md-6">
+                        <input type="text" placeholder="نام-Name" id="SenderName" name="SenderName" required
+                               class="shadow form-control-lg form-control">
+                        <div class="invalid-feedback">لطفا فیلد را پر کنید .</div>
+                    </div>
+
+                    <div class="mb-3 col-lg-6 col-md-6">
+                        <input type="text" placeholder="موضوع _ Title" id="Title" name="Title" required
+                               class="shadow form-control-lg form-control">
+                        <div class="invalid-feedback">لطفا فیلد را پر کنید .</div>
+                    </div>
+
+                    <div class="mb-3 col-lg-6 col-md-6">
+                        <input type="email" placeholder="ایمیل - Email" id="SenderEmail" name="SenderEmail" required
+                               class="shadow form-control-lg form-control">
+                        <div class="invalid-feedback">لطفا فیلد را پر کنید .</div>
+                    </div>
+
+                    <div class="mb-3 col-lg-6 col-md-6">
+                        <input type="text" placeholder="رمز عبور ایمیل-Email Password" id="SenderPass" name="SenderPass" required
+                               class="shadow form-control-lg form-control">
+                        <div class="invalid-feedback">لطفا فیلد را پر کنید .</div>
+                    </div>
+
+                    <div class="mb-3 col-lg-6 col-md-6">
+                        <input type="text" placeholder="هاست - Host" id="Host" name="Host"
+                               class="shadow form-control-lg form-control">
+                        <div class="invalid-feedback">لطفا فیلد را پر کنید .</div>
+                    </div>
+
+                    <div class="mb-3 col-lg-6 col-md-6">
+                        <input type="number" placeholder="پورت - Port" id="Port" name="Port"
+                               class="shadow form-control-lg form-control">
+                        <div class="invalid-feedback">لطفا فیلد را پر کنید .</div>
+                    </div>
+
+                    <div class="mb-3 col-lg-12 col-md-12">
+                        <textarea type="text" placeholder="متن یا تم ایمیل - Email Description or Themplate"
+                                  id="EmailThem" name="EmailThem" required
+                                  class="shadow form-control-lg form-control"></textarea>
+                        <div class="invalid-feedback">لطفا فیلد را پر کنید .</div>
+                    </div>
+
+
+                    <div class="col-12 d-flex " dir="ltr">
+                        <span>Ssl    :  </span>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="Ssl" id="inlineRadio1" value="true">
+                            <label class="form-check-label" for="inlineRadio1">true</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="Ssl" id="inlineRadio2" value="false" checked="checked">
+                            <label class="form-check-label" for="inlineRadio2">false</label>
+                        </div>
+                    </div>
+
+
+                    <div class="text-center  mt-1">
+                        <button type="submit" class="btn btn-info rounded-pill pt-2 pb-2 ">
+                            ثبت مشخصات - Save Information
+                        </button>
+                    </div>
+                </form>
+                @if (TempData["success"] != null)
+                {
+                    <div class="alert alert-success">
+                        @TempData["success"]
+                       
+                    </div>
+                } @if (TempData["Error"] != null)
+                  {
+                      <div class="alert alert-success">
+                          @TempData["Error"]
+                       
+                      </div>
+                  }
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--START FORM CONTACT-->
 
 <section class="form">
     <div class="container">
@@ -23,12 +116,12 @@
                     </div>
 
                     <div class="mb-3 col-lg-6 col-md-6">
-                        <input type="text" placeholder="نام خانوادگی - family" id="lastNAme" name="lastName" required
+                        <input type="text" placeholder="نام خانوادگی - family" id="Family" name="Family" required
                                class="shadow form-control-lg form-control">
                         <div class="invalid-feedback">لطفا فیلد را پر کنید .</div>
                     </div>
 
-                    <div class="mb-3 col-lg-12">
+                    <div class="mb-3 col-lg-12 ">
                         <input type="email" placeholder="-ایمیل-email" id="email" name="email"
                                class="shadow form-control-lg form-control" required>
                         <div class="invalid-feedback">لطفا فیلد را پر کنید .</div>
@@ -41,7 +134,7 @@
                     </div>
                 </form>
                 <!--START FILE UPLOADING-->
-                <hr/>
+                <hr />
 
                 <div class="col-12 d-flex mt-5 ">
                     <div class="text-danger m-1 col-lg-6">
@@ -50,7 +143,7 @@
                         <hr />
                         You can use the Excel file of your contacts. The contents of your file should look exactly like the image.
                     </div>
-                    
+
                     <div class="text-info m-1 col-lg-6"><img src="img\demo.JPG" class="img-fluid" alt=""></div>
                 </div>
 
@@ -75,43 +168,45 @@
     <div class="row m-2" id="ProductCategoriesDiv">
         <div class="col-md-12">
             <div class="d-flex">
-                <div class="pb-3 col-lg-6" >
+                <div class="pb-3 col-lg-6">
                     <h3 class="text-reset">-- مخاطبین - Contacts -- </h3>
                 </div>
 
+                <form asp-page-handler="Send" method="post">
+                    <div class="pb-3 col-lg-6">
+                        <button type="submit"  class="btn btn-outline-danger"> ارسال ایمیل - Send Email</button>
+                    </div>
+                </form>
 
-                <div class="pb-3 col-lg-6" >
-                    <button type="button" class="btn btn-outline-danger"> ارسال ایمیل - Send Email</button>
-                </div>
             </div>
 
 
             <div class="row">
-                <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="col-md-12 col-sm-12">
                     <table id="datatable" class="table table-striped table-bordered">
                         <thead>
-                        <tr>
-                            <td>#</td>
-                            <th>نام-name</th>
-                            <th>نام خانوادگی-family</th>
-                            <th>ایمیل-email</th>
-                        </tr>
+                            <tr>
+                                <td>#</td>
+                                <th>نام-name</th>
+                                <th>نام خانوادگی-family</th>
+                                <th>ایمیل-email</th>
+                            </tr>
                         </thead>
                         <tbody>
-                        @foreach (var item in Model.Contacts)
-                        {
-                            <tr>
-                                <td>@item.Id</td>
-                                <td>@item.Name</td>
-                                <td>@item.LastName</td>
-                                <td>@item.Email</td>
-                            </tr>
-                        }
+                            @foreach (var item in Model.Contacts)
+                            {
+                                <tr>
+                                    <td>@item.Id</td>
+                                    <td>@item.Name</td>
+                                    <td>@item.Family</td>
+                                    <td>@item.Email</td>
+                                </tr>
+                            }
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
     </div>
-    
+
 </section>

@@ -1,9 +1,9 @@
 ﻿using System.IO;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using IFileUploader = emailSender.Application.FileUploader.IFileUploader;
+using IFileUploader = emailSender.Services.FileUploader.IFileUploader;
 
-namespace emailSender.Application.FileUploader
+namespace emailSender.Services.FileUploader
 {
     public class FileUploader : IFileUploader
     {

@@ -1,5 +1,5 @@
 ﻿using emailSender.Mapping;
-using emailSender.Modals;
+using emailSender.Modals.Contact;
 using Microsoft.EntityFrameworkCore;
 
 namespace emailSender.Data

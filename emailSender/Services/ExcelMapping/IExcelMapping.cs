@@ -1,6 +1,4 @@
-﻿using System.IO;
-
-namespace emailSender.Application.ExcelMapping
+﻿namespace emailSender.Services.ExcelMapping
 {
     public interface IExcelMapping
     {

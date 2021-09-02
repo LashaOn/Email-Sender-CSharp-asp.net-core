@@ -1,4 +1,5 @@
 ﻿using emailSender.Modals;
+using emailSender.Modals.Contact;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -13,7 +14,7 @@ namespace emailSender.Mapping
             builder.HasKey(x => x.Id);
             builder.Property(x => x.Email).IsRequired();
             builder.Property(x => x.Name).IsRequired();
-            builder.Property(x => x.LastName).IsRequired();
+            builder.Property(x => x.Family).IsRequired();
         }
     }
 }

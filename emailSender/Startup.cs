@@ -1,12 +1,14 @@
-using emailSender.Application.ExcelMapping;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using emailSender.Data;
+using emailSender.Services.EmailSender;
+using emailSender.Services.ExcelMapping;
+using emailSender.Services.FileUploader;
 using Microsoft.EntityFrameworkCore;
-using IFileUploader = emailSender.Application.FileUploader.IFileUploader;
+using IFileUploader = emailSender.Services.FileUploader.IFileUploader;
 
 namespace emailSender
 {
@@ -23,8 +25,9 @@ namespace emailSender
         public void ConfigureServices(IServiceCollection services)
         {
             //registration
-            services.AddTransient<IFileUploader, Application.FileUploader.FileUploader>();
+            services.AddTransient<IFileUploader, FileUploader>();
             services.AddTransient<IExcelMapping, ExcelMapping>();
+            services.AddTransient<IEmailSender, EmailSender>();
 
             //connecting into database
             var connectionString = Configuration.GetConnectionString("EmailSenderDB");

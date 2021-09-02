@@ -71,3 +71,6 @@ D:\emailSnder\emailSender\emailSender\obj\Debug\net5.0\emailSender.csproj.Assemb
 D:\emailSnder\emailSender\emailSender\bin\Debug\net5.0\EPPlus.dll
 D:\emailSnder\emailSender\emailSender\bin\Debug\net5.0\Microsoft.IO.RecyclableMemoryStream.dll
 D:\emailSnder\emailSender\emailSender\bin\Debug\net5.0\System.Xml.XPath.XmlDocument.dll
+D:\emailSnder\emailSender\emailSender\bin\Debug\net5.0\MailKit.dll
+D:\emailSnder\emailSender\emailSender\bin\Debug\net5.0\MimeKit.dll
+D:\emailSnder\emailSender\emailSender\bin\Debug\net5.0\BouncyCastle.Crypto.dll

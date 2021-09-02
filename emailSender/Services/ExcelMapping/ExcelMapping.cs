@@ -3,9 +3,10 @@ using System.IO;
 using System.Linq;
 using emailSender.Data;
 using emailSender.Modals;
+using emailSender.Modals.Contact;
 using OfficeOpenXml;
 
-namespace emailSender.Application.ExcelMapping
+namespace emailSender.Services.ExcelMapping
 {
     public class ExcelMapping : IExcelMapping
     {
@@ -23,18 +24,20 @@ namespace emailSender.Application.ExcelMapping
             https://www.nuget.org/packages/EPPlus/
             Install-Package EPPlus -Version 5.7.4*/
 
-            var list = new List<Contact>();
 
             var existingFile = new FileInfo(filePath);
             using ExcelPackage package = new ExcelPackage(existingFile);
 
             //get the first worksheet in the workbook
-            var worksheet = package.Workbook.Worksheets.First(); 
+            var worksheet = package.Workbook.Worksheets.First();
 
-            int rowCount = worksheet.Dimension.End.Row;  //get row count
+            //get row count
+            int rowCount = worksheet.Dimension.End.Row;  
+            
 
             for (int row = 2; row <= rowCount; row++)
             { 
+                //add excel file data into database
                 var contact = new Contact(
                         worksheet.Cells[row, 2].Value.ToString()?.Trim(),
                         worksheet.Cells[row, 3].Value.ToString()?.Trim(),

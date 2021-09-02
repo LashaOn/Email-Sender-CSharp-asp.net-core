@@ -28,7 +28,7 @@ namespace emailSender.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("LastName")
+                    b.Property<string>("Family")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
